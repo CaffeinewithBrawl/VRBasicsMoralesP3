@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BallBounceSound : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip clip;
+    public float volume;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,9 @@ public class BallBounceSound : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       
+        if (collision.gameObject.tag == "Room")
+        {
+            audioSource.PlayOneShot(clip, volume);
+        }
     }
 }
