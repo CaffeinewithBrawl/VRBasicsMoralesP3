@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class ToggleFlashlight : MonoBehaviour
 {
-    public GameObject LightSource;
+    private Light _light;
 
-    private bool isOn = false;
-
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        
+        _light = GetComponent<Light>();
+    }
+
+   public void LightOn()
+    {
+        _light.enabled = true;
+    }
+
+    public void LightOff()
+    {
+        _light.enabled = false;
     }
 }
